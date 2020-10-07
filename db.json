@@ -1,0 +1,31 @@
+{
+  "admin": [
+    {
+      "id": 1,
+      "name": "Sonya",
+      "password": "12345"
+    }
+  ],
+  "contacts": [
+    {
+      "id": 1,
+      "name": "Smith",
+      "position": "Frontend-developer | Vue.js"
+    },
+    {
+      "id": 2,
+      "name": "John",
+      "position": "Frontend-developer | Angular.js"
+    },
+    {
+      "name": "Mark",
+      "position": "Frontend-developer | React.js",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "name": "asd",
+      "position": "asd"
+    }
+  ]
+}
