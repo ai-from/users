@@ -1,4 +1,4 @@
-# test-task
+# Users
 
 ## Project setup
 ```
@@ -13,6 +13,17 @@ npm run serve
 ### Compiles and minifies for production
 ```
 npm run build
+```
+
+### Start json-server
+```
+json-server --watch db.json
+```
+
+### Login / password
+```
+Login: Sonya
+Password: 12345
 ```
 
 ### Customize configuration

@@ -1,17 +1,26 @@
 <template>
   <div class="auth">
-    <div class="auth__modal">
-      Auth<br>
-      Enter your login:
+    <div class="auth-modal">
+      <div class="auth-modal__title">Авторизация</div>
 
-      <v-input v-model="login" />
+      <v-input
+        id="login"
+        v-model="login"
+        label="Логин:"
+        class="auth-modal__input"
+      />
 
-      Enter your password:
-
-      <v-input v-model="password" type="password" @keyup.enter.native="checkAdmin" />
+      <v-input
+        id="password"
+        v-model="password"
+        label="Пароль:"
+        type="password"
+        @keyup.enter.native="checkAdmin"
+        class="auth-modal__input"
+      />
 
       <v-button
-        text="Enter"
+        text="Войти"
         @click="checkAdmin"
       ></v-button>
 
@@ -48,7 +57,8 @@ export default {
   methods: {
     checkAdmin() {
       if(this.login === this.adminName && this.password === this.adminPassword) {
-        this.$store.dispatch('SET_ADMIN_TRUE')
+        localStorage.setItem('auth', 'true')
+        localStorage.setItem('adminName', this.adminName)
         this.$router.push('/users')
       }
       else return false
@@ -59,6 +69,19 @@ export default {
 
 <style lang="sass">
   .auth
-    &__modal
-      border: 1px solid black
+    display: grid
+    min-height: 100vh
+    &-modal
+      margin: auto
+      border: 1px solid $grey
+      padding: 25px
+      width: 300px
+      &__title
+        font-size: 1.8rem
+        color: $blue
+        margin-bottom: 16px
+        text-align: center
+      &__input
+        margin-bottom: 20px
+        width: 100%
 </style>

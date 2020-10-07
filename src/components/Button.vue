@@ -28,6 +28,17 @@
 <style lang="sass">
   .v-button
     button
-      border: 1px solid black
       cursor: pointer
+      background: $blue
+      color: $white
+      padding: 0 20px
+      height: 32px
+      border: none
+      font-size: .9rem
+      &:hover
+        background: $blue-light
+      &:active
+        background: $blue-dark
+      &:active, &:focus
+        outline: none
 </style>

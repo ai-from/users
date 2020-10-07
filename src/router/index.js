@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import store from '@/store'
 import Auth from '../views/Auth.vue'
 
 Vue.use(VueRouter)
@@ -9,12 +8,14 @@ const routes = [
   {
     path: '/',
     name: 'Auth',
-    component: Auth
+    component: Auth,
+    meta: {title: 'Auth'}
   },
   {
     path: '/users',
     name: 'Users',
-    component: () => import('@/views/Users')
+    component: () => import('@/views/Users'),
+    meta: {title: 'Users'}
   }
 ]
 
@@ -25,11 +26,13 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  if(to.path !== '/' && store.getters.GET_ADMIN_STATUS === false) {
+  let auth = localStorage.getItem('auth')
+  if(to.path !== '/' && auth !== 'true') {
     next('/')
   } else {
     next()
   }
+  document.title = to.meta.title
 })
 
 export default router
